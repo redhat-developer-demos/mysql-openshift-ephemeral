@@ -4,7 +4,7 @@ $mpod = (oc get pods --selector app=mysql --output name | Select-Object).Split("
 # Copy setup files to pod
 Write-Output 'Copying setup files into pod...'
 oc cp .\customer-table-create.sql ${mpod}:/tmp/customer-table-create.sql
-oc cp .\customer-data.txt ${mpod}:/tmp/customer-data.txt
+oc cp .\insert-customer-data.sql ${mpod}:/tmp/insert-customer-data.sql
 
 # Build table
 Write-Output 'Creating table(s)...'
@@ -12,7 +12,7 @@ oc exec $mpod -- bash -c "mysql --user=root < /tmp/customer-table-create.sql"
 
 # Populate table
 Write-Output 'Importing data...'
-oc exec $mpod -- bash -c "mysql --user=root -e 'use sampledb; LOAD DATA LOCAL INFILE \""/tmp/customer-data.txt\"" INTO TABLE customer FIELDS TERMINATED BY \"",\"" ENCLOSED BY \""\"" LINES TERMINATED BY \""\n\"" IGNORE 1 ROWS (customerName,effectiveDate,description,status);'"
+oc exec $mpod -- bash -c "mysql --user=root < /tmp/insert-customer-data.sql"
 
 # Prove it all workedZZZZ
 Write-Output 'Here is your table:'

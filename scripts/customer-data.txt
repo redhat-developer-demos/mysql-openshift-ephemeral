@@ -1,5 +1,0 @@
-customerName,effectiveDate,description,status
-"Alpha Beta Testers Inc.",20190601,"Alpha Beta Testers is who we hire to beta test our software",1
-"Snazzy Painters",20190601,"Snazzy Painters is a group of well-dressed house painters.",1
-"Peter Piper",20190601,"Peter provides the music for our annual holiday party.",1
-"Sally's Supermarket",20190601,"Sally's is where we purchase all foods for the office. Sally is awesome.",1

@@ -12,3 +12,10 @@ oc exec $mpod -- bash -c "mysql --user=root < /tmp/insert-customer-data.sql"
 
 echo "Here is your table:"
 oc exec $mpod -- bash -c "mysql --user=root sampledb -e 'use sampledb; SELECT * FROM customer;'"
+
+# Temporary fix because MySQL 8.* client isn't secure in mysqljs Nodejs module
+echo "Setting user password..."
+oc exec $mpod -- bash -c "mysql --user=root -e 'ALTER USER '\''user5OR'\'' IDENTIFIED WITH mysql_native_password BY '\''FLhWSwd47qAOJs24'\'';'"
+
+echo "Flushing privileges...""
+oc exec $mpod -- bash -c "mysql --user=root -e 'FLUSH PRIVILEGES;'"

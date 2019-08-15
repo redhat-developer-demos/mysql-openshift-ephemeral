@@ -1,0 +1,18 @@
+﻿@model List<mvcCustomer.Models.CustomerSummary>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Customers</h1>
+    <p>Click on a Customer to get more information.</p>
+</div>
+@{ 
+    var data = ViewBag.Message;
+}
+@foreach (var customer in data)
+{
+        @customer.id
+        @customer.customerName
+}

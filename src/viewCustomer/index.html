@@ -22,14 +22,21 @@
         <label>Customer ID:</label>
         <input id="customerId"></input>
         <button id="getCustomer">Get Customer</button>
+        <label id="oops"></label>
         <label id='customerInfo'></label>
     </body>
     <script>
         $("#getCustomer").click(function(){
             var uri = "http://getcustomer-mysql-test.apps.mysql.rhdemos.com";
             var custid = $("#customerId").val();
-            $.get(uri + "/customer/" + custid, function(data, status){
-                $("#customerInfo").text(data);
+            uri = uri + "/customer/" + custid;
+            $.get(uri)
+                .done(function(result) {
+                    $("#oops").text("")
+                    $("#customerInfo").text(data);
+                })
+                .fail(function(xhr, status, error) {
+                    $("#oops").text("Call to Service has failed.")
             });
         });
     </script>

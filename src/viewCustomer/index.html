@@ -27,13 +27,14 @@
     </body>
     <script>
         $("#getCustomer").click(function(){
-            var uri = "http://getcustomer-mysql-test.apps.mysql.rhdemos.com";
+            // http://getcustomer-mysql-test.apps.test.rhdemos.com/
+            var uri = "http://getcustomer-mysql-test.apps.test.rhdemos.com";
             var custid = $("#customerId").val();
             uri = uri + "/customer/" + custid;
             $.get(uri)
                 .done(function(result) {
                     $("#oops").text("")
-                    $("#customerInfo").text(data);
+                    $("#customerInfo").text(result);
                 })
                 .fail(function(xhr, status, error) {
                     $("#oops").text("Call to Service has failed.")

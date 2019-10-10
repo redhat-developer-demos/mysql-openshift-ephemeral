@@ -1,18 +1,10 @@
-﻿@model List<mvcCustomer.Models.CustomerSummary>
+﻿
+@model List<mvcCustomer.Models.CustomerSummary>
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Customers</h1>
-    <p>Click on a Customer to get more information.</p>
+    <h1 class="display-4"><a asp-controller="Customers" asp-action="Index" >Customers</a></h1>
 </div>
-@{ 
-    var data = ViewBag.Message;
-}
-@foreach (var customer in data)
-{
-        @customer.id
-        @customer.customerName
-}

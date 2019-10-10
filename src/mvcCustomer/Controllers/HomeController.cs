@@ -14,18 +14,6 @@ namespace mvcCustomer.Controllers
     {
         public IActionResult Index()
         {
-            List<CustomerSummary> summaryList = new List<CustomerSummary>();
-
-            // Call service to get summary list of customers
-            List<CustomerSummary> customerSummaryList = new List<CustomerSummary>();
-            using (var client = new WebClient())
-            {
-                var json = client.DownloadString("getCustomerSummaryList");
-                var serializer = new JavaScriptSerializer();
-                customerSummaryList = serializer.Deserialize<List<CustomerSummary>>(json);
-            }
-
-            ViewBag.Message = customerSummaryList;
             return View();
         }
 

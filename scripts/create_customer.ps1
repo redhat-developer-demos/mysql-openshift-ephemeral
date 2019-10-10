@@ -20,7 +20,7 @@ oc exec $mpod -- bash -c "mysql --user=root -e 'use sampledb; SELECT * FROM cust
 
 # Temporary fix because MySQL 8.* client isn't secure in mysqljs Nodejs module
 Write-Output 'Setting user password...'
-oc exec $mpod -- bash -c "mysql --user=root -e 'ALTER USER '\''userJTT'\'' IDENTIFIED WITH mysql_native_password BY '\''waqtujG4tV4YePix'\'';'"
+oc exec $mpod -- bash -c "mysql --user=root -e 'ALTER USER '\''userWQE'\'' IDENTIFIED WITH mysql_native_password BY '\''xM0Ec5LHXCIDLW4s'\'';'"
 
 Write-Output 'Flushing privileges...'
 oc exec $mpod -- bash -c "mysql --user=root -e 'FLUSH PRIVILEGES;'"

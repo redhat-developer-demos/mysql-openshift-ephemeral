@@ -27,8 +27,7 @@
     </body>
     <script>
         $("#getCustomer").click(function(){
-            // http://getcustomer-mysql-test.apps.test.rhdemos.com/
-            var uri = "http://getcustomer-mysql-test.apps.test.rhdemos.com";
+            var uri = "http://getcustomer-mysql-test.apps.mysql.rhdemos.com";
             var custid = $("#customerId").val();
             uri = uri + "/customer/" + custid;
             $.get(uri)

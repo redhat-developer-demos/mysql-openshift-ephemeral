@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dschenck\\src\\github\\donschenck\\mysql-openshift-ephemeral\\src\\mvcCustomer\\mvcCustomer.csproj": {}
+    "C:\\Users\\dschenck\\src\\github\\redhat-developer-demos\\mysql-openshift-ephemeral\\src\\mvcCustomer\\mvcCustomer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dschenck\\src\\github\\donschenck\\mysql-openshift-ephemeral\\src\\mvcCustomer\\mvcCustomer.csproj": {
+    "C:\\Users\\dschenck\\src\\github\\redhat-developer-demos\\mysql-openshift-ephemeral\\src\\mvcCustomer\\mvcCustomer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dschenck\\src\\github\\donschenck\\mysql-openshift-ephemeral\\src\\mvcCustomer\\mvcCustomer.csproj",
+        "projectUniqueName": "C:\\Users\\dschenck\\src\\github\\redhat-developer-demos\\mysql-openshift-ephemeral\\src\\mvcCustomer\\mvcCustomer.csproj",
         "projectName": "mvcCustomer",
-        "projectPath": "C:\\Users\\dschenck\\src\\github\\donschenck\\mysql-openshift-ephemeral\\src\\mvcCustomer\\mvcCustomer.csproj",
+        "projectPath": "C:\\Users\\dschenck\\src\\github\\redhat-developer-demos\\mysql-openshift-ephemeral\\src\\mvcCustomer\\mvcCustomer.csproj",
         "packagesPath": "C:\\Users\\dschenck\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dschenck\\src\\github\\donschenck\\mysql-openshift-ephemeral\\src\\mvcCustomer\\obj\\",
+        "outputPath": "C:\\Users\\dschenck\\src\\github\\redhat-developer-demos\\mysql-openshift-ephemeral\\src\\mvcCustomer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -58,16 +58,26 @@
               "version": "[2.2.0, )",
               "autoReferenced": true
             },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.3, )"
+            },
             "Nancy": {
               "target": "Package",
               "version": "[2.0.0, )"
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

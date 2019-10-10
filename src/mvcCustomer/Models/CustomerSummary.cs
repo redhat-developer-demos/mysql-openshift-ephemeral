@@ -9,8 +9,8 @@ namespace mvcCustomer.Models
     public class CustomerSummary
     {
         [Display(Name = "Customer ID")]
-        public int id { get; set; }
+        public int Id { get; set; }
         [Display(Name = "Customer Name")]
-        public string customerName { get; set; }
+        public string CustomerName { get; set; }
     }
 }

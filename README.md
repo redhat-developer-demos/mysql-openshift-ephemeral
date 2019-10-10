@@ -14,11 +14,14 @@ Like everything else we do at Red Hat, it's open source and open to pull request
 ## Create MySQL database
 `oc new-app mysql-ephemeral --name mysql`  
 
-## Populate database
+## Populate database  
+
+**NOTE that you must change the user and password values in the following script before running it.**
+
 ### Windows
 `$PROJECT-HOME/scripts/create-customer.ps1`  
 
-### Linux-based systems
+### Linux-based systems (including macOS)
 `$PROJECT-HOME/scripts/create-customer.sh`  
 
 ## Create the getCustomer service

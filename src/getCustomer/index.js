@@ -36,7 +36,7 @@ app.get('/', (req, res) => res.send(`getCustomer version ${version}`))
 app.get('/customer/:id', function (req, res) {
   connection.query('select * from customer where id=?', [req.params.id], function (error, results, fields) {
    if (error) throw error;
-   res.end(JSON.stringify(results));
+   res.end(JSON.stringify(results[0]));
  });
 });
 

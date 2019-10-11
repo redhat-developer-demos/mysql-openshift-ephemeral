@@ -18,6 +18,7 @@ namespace mvcCustomer.Controllers
             {
 //                string uri = "http://getcustomersummarylist-mysql-test.apps.mysql.rhdemos.com/customers";
 //                string uri = "getcustomersummarylist/customers";
+//                OpenShift Example: http://getcustomersummerlist:8080/customers
                 string uri = Environment.GetEnvironmentVariable("GET_CUSTOMER_SUMMARY_LIST_URI");
                 var json = client.DownloadString(uri);
                 var serializer = new JavaScriptSerializer();
@@ -33,7 +34,9 @@ namespace mvcCustomer.Controllers
             {
 //                string uri = "http://getcustomer-mysql-test.apps.mysql.rhdemos.com/customer/" + id.ToString();
 //                string uri = "getcustomer/customer/" + id.ToString();
+//                OpenShift Example: http://getcustomer:8080/customer
                 string uri = Environment.GetEnvironmentVariable("GET_CUSTOMER_URI");
+                uri = uri + "/" + id.ToString();
                 var json = client.DownloadString(uri);
                 var serializer = new JavaScriptSerializer();
                 customer = serializer.Deserialize<Customer>(json);

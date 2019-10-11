@@ -29,15 +29,22 @@ Like everything else we do at Red Hat, it's open source and open to pull request
 
 `oc new-app https://github.com/redhat-developer-demos/mysql-openshift-ephemeral.git --context-dir=src/getCustomer --name getcustomer -e MYSQL_HOST=mysql -e MYSQL_DATABASE=sampledb -e MYSQL_USER=userP1F -e MYSQL_PASSWORD=eRwTuVSW1MhsIUHw`  
 
-## Expose the service 'getcustomer'
-`oc expose service getcustomer --insecure-skip-tls-verify=false`  
+## Create the getCustomerSummaryList service
+#### Note: The variables 'MYSQL_USER' and 'MYSQL_PASSWORD' are determined by the values returned after you create the ephemeral MySQL application, above.  
+
+`oc new-app https://github.com/redhat-developer-demos/mysql-openshift-ephemeral.git --context-dir=src/getCustomerSummaryList --name getcustomersummarylist -e MYSQL_HOST=mysql -e MYSQL_DATABASE=sampledb -e MYSQL_USER=userP1F -e MYSQL_PASSWORD=eRwTuVSW1MhsIUHw`  
+
+## Create the service "mvccustomer"
+This will pull a Linux image from a registry. This is being done to demonstrate the versatility of the OpenShift application build feature.
+
+`oc new-app --name mvccustomer --docker-image=quay.io/donschenck/mvccustomer:latest -e GET_CUSTOMER_SUMMARY_LIST_URI="http://getcustomersummarylist:8080/customers" -e GET_CUSTOMER_URI="http://getcustomer:8080/customer"`
+
+## Expose the mvccustomer web site
+`oc expose service mvccustomer --insecure-skip-tls-verify=false`
 
 ## Test it
-`$PROJECT-HOME/src/viewCustomer/index.html`  
-
-Command to compile the MVC web site for Linux:  
-`dotnet publish -c Release -r linux-x64 /p:PublishSingleFile=true`
-
+Get the route, then open it in your browser:  
+`oc get routes`
 
 
 ### END ###

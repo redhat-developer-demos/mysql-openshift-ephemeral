@@ -1,3 +1,6 @@
+src/mvcCustomer/obj/
+src/mvcCustomer/bin/
+
 # Logs
 logs
 *.log

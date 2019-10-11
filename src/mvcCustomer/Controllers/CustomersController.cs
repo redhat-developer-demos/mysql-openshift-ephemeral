@@ -16,7 +16,9 @@ namespace mvcCustomer.Controllers
             List<CustomerSummary> customerSummaryList = new List<CustomerSummary>();
             using (var client = new System.Net.WebClient())
             {
-                string uri = "http://getcustomersummarylist-mysql-test.apps.mysql.rhdemos.com/customers";
+//                string uri = "http://getcustomersummarylist-mysql-test.apps.mysql.rhdemos.com/customers";
+//                string uri = "getcustomersummarylist/customers";
+                string uri = Environment.GetEnvironmentVariable("GET_CUSTOMER_SUMMARY_LIST_URI");
                 var json = client.DownloadString(uri);
                 var serializer = new JavaScriptSerializer();
                 customerSummaryList = serializer.Deserialize<List<CustomerSummary>>(json);
@@ -29,7 +31,9 @@ namespace mvcCustomer.Controllers
             var customer = new Customer();
             using (var client = new System.Net.WebClient())
             {
-                string uri = "http://getcustomer-mysql-test.apps.mysql.rhdemos.com/customer/" + id.ToString();
+//                string uri = "http://getcustomer-mysql-test.apps.mysql.rhdemos.com/customer/" + id.ToString();
+//                string uri = "getcustomer/customer/" + id.ToString();
+                string uri = Environment.GetEnvironmentVariable("GET_CUSTOMER_URI");
                 var json = client.DownloadString(uri);
                 var serializer = new JavaScriptSerializer();
                 customer = serializer.Deserialize<Customer>(json);

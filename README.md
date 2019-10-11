@@ -35,4 +35,9 @@ Like everything else we do at Red Hat, it's open source and open to pull request
 ## Test it
 `$PROJECT-HOME/src/viewCustomer/index.html`  
 
+Command to compile the MVC web site for Linux:  
+`dotnet publish -c Release -r linux-x64 /p:PublishSingleFile=true`
+
+
+
 ### END ###
